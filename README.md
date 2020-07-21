@@ -110,6 +110,13 @@ Content-Length: 21
 ```
 ### Get wallet activity history given wallet id, date and direction
 
+wallet history require wallet-id, date and direction
+
+1. deposit
+* topup to this `wallet-id` (in history output csv `sender-id` field will be empty)
+* sending from other wallet to this `wallet-id` (in history output csv both `sender-id` and `recipient-id` will be filled)
+2. withdraw
+* sending from this `wallet-id` to other wallet (in history output csv both `sender-id` and `recipient-id` will be filled)
 
 REQUEST `GET /wallet/{id}/history?date={dd-mm-yyyy}&direction=[deposit|withdraw]`
 
